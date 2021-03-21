@@ -18,7 +18,7 @@ export class DeviceItemFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       name: new FormControl("Device",Validators.compose([Validators.pattern('[\\w\\-\\s\\/]+')
-                                                        ,Validators.required])),
+                                                        ,Validators.required,this.nameValidator])),
       ostype: new FormControl(null),
       battery: new FormControl(null),
       memory: new FormControl(null)
@@ -28,11 +28,11 @@ export class DeviceItemFormComponent implements OnInit {
   }
 
   nameValidator(control: FormControl){
-    if (control.value.trim().lenght < 2){
-      return null;
+    if (control.value.trim().length < 2){
+      return {name: true};
     }
     else{
-      
+      return null;
     }
   }
 
