@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeviceItemService } from '../device-item.service';
 
 @Component({
   selector: 'app-device-item-list',
@@ -6,49 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./device-item-list.component.scss']
 })
 export class DeviceItemListComponent implements OnInit {
-
-  constructor() { }
+  deviceItems;
+  constructor(private deviceItemService: DeviceItemService) { }
 
   ngOnInit(): void {
+    this.deviceItems = this.deviceItemService.get();
   }
-  deviceItems = [
-    {
-      Id:1,
-      Name: "Device 1",
-      OsType: "Os 1",
-      Battery : 100,
-      Memory:"4 GB"
-    },
+  
 
-    {
-      Id:2,
-      Name: "Device 2",
-      OsType: "Os 2",
-      Battery : 50,
-      Memory:"16 GB"
-    },
-    {
-      Id:3,
-      Name: "Device 3",
-      OsType: "Os 1",
-      Battery : 10,
-      Memory:"4 GB"
-    },
-    {
-      Id:4,
-      Name: "Device 1",
-      OsType: "Os 1",
-      Battery : 100,
-      Memory:"4 GB"
-    },
-    {
-      Id:5,
-      Name: "Device 1",
-      OsType: null,
-      Battery : 100,
-      Memory:"4 GB"
-    }
-
-  ]
+  onDeviceItemDelete(deviceItem){
+    this.deviceItemService.delete(deviceItem); 
+  }
 
 }

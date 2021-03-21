@@ -5,16 +5,19 @@
         <li>
             <label for="name">Name</label>
             <input type="text" name="name" id="name" formControlName="name">
+            <div *ngIf="form.get('name').hasError('name')" class="error">Name is Too Short, Must contain more than 2 characters</div>
+            <div *ngIf="!form.get('name').hasError('name')"><p> </p></div>
         </li>
         <li>
-            <label for="osyype">OsType</label>
-            <select name="ostype" id="ostype" formControlName="ostye">
+            <label for="ostype">OsType</label>
+            <select name="ostype" id="ostype" formControlName="OsType">
                 
                 <option value="Android">Android</option>
                 <option value="Windows">Windows</option>
                 <option value="IOS">IOS</option>
                 <option value="Linux">Linux</option>
             </select>
+            <div><p> </p></div>
         </li>
         <li>
             <label for="battery">Battery</label>
@@ -122,6 +125,7 @@
                 <option value = 99 > 99 </option>
                 <option value = 100 > 100 </option>
             </select>
+            <div><p> </p></div>
         </li>
         <li>
             <label for="memory">Memory</label>
@@ -160,6 +164,7 @@
                 <option value="31 GB"> 31 GB </option>
                 <option value="32 GB"> 32 GB </option>
             </select>
+            <div><p> </p></div>
         </li>
     </ul>
     <button type="submit" [disabled]="!form.valid"> Save </button>

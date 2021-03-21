@@ -8,13 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'DeviceApp';
 
-  firstDeviceItem = {
-    Id:1,
-    Name: "Device 1",
-    OsType: "Os 1",
-    Battery : 100,
-    Memory:"4 GB"
-  }
+  
 
   onDeviceItemDelete(deviceItem){}
 }
