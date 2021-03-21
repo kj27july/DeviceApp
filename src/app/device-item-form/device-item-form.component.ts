@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { DeviceItemService } from '../device-item.service';
+import {lookupListToken} from '../providers';
 
 
 @Component({
@@ -14,9 +15,8 @@ export class DeviceItemFormComponent implements OnInit {
   
 
   constructor(private formBuilder: FormBuilder,
-    private deviceItemService: DeviceItemService) {
-    
-   }
+    private deviceItemService: DeviceItemService,
+    @Inject(lookupListToken) public lookupLists) {}
 
    
 

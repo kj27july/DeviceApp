@@ -3,15 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule} from "@angular/forms"
 
 import { BatteryLevel } from './battery.directive';
-import { DeviceItemService } from './device-item.service';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { DeviceItemFormComponent } from './device-item-form/device-item-form.component';
 import { DeviceItemComponent } from './device-item/device-item.component';
 import { DeviceItemListComponent } from './device-item-list/device-item-list.component';
-
-
+import { lookupListToken, lookupLists } from './providers'
 
 @NgModule({
   declarations: [
@@ -27,7 +25,7 @@ import { DeviceItemListComponent } from './device-item-list/device-item-list.com
     BrowserModule,
     ReactiveFormsModule
   ],
-  providers: [ ],
+  providers: [ {provide: lookupListToken,useValue: lookupLists} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
