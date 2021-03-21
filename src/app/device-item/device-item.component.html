@@ -1,0 +1,13 @@
+<h2>{{ deviceItem.Name | uppercase}}</h2>
+<div *ngIf="deviceItem.OsType">OsType: {{deviceItem.OsType}}</div>
+<div>Battery: {{deviceItem.Battery}}</div>
+<div>Memory: {{deviceItem.Memory}}</div>
+<div class="tools">
+  
+  <a (click)="onDelete()" class="delete">
+    Delete
+  </a>
+  <a class="details">
+    Edit
+  </a>
+</div>
