@@ -6,6 +6,11 @@ import { Directive, HostBinding, Input, HostListener } from '@angular/core';
 export class BatteryLevel{
 
     @Input() set batteryLevel(value){
+        if (value==null) {
+            this.BatteryHigh = false;
+            this.BatteryLow = false;
+            this.BatteryAvg = false;
+        }
         if (value>=75) {
             this.BatteryHigh = true;
             this.BatteryLow = false;
