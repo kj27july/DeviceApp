@@ -1,14 +1,35 @@
-:host {
-    display: flex;
-    flex-direction: column;
-    width: 140px;
-    height: 200px;
-    border: 2px solid;
-    background-color: #29394b;
-    padding: 10px;
-    color: #bdc2c5;
-    margin: 0 12px 12px 0;
-  }
+// :host {
+//     display: flex;
+//     flex-direction: column;
+//     width: 140px;
+//     height: 200px;
+//     border: 2px solid;
+//     background-color: #29394b;
+//     padding: 10px;
+//     color: #bdc2c5;
+//     margin: 0 12px 12px 0;
+//   }
+
+:host{
+  background-color: #29394b;
+  color: #bdc2c5;
+  border: 2px solid;
+  padding: 10px;
+}
+th{
+  border: 2px solid;
+  width: 150px;
+  height : 50px;
+}
+
+:host(.is-hovering) {
+  
+  border: 2px solid;
+  background-color: #0a5070;
+  padding: 10px;
+  color: #bdc2c5;
+  margin: 0 12px 12px 0;
+}
   h2 {
     font-size: 1.6em;
     flex: 1;
@@ -16,9 +37,9 @@
   
   .tools {
     margin-top: 8px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    //display: flex;
+    //flex-wrap: nowrap;
+    //justify-content: space-between;
   }
  
  
@@ -30,6 +51,7 @@
     border-radius: 4px;
     color: #000000;
     cursor: pointer;
+    margin: 10px;;
   }
 
   .delete:hover {
@@ -49,6 +71,7 @@
     border-radius: 4px;
     color: #000000;
     text-decoration: none;
+    margin: 10px;
   }
 
   .details:hover {
@@ -85,14 +108,4 @@
     color: #c0810d;
   }
 
-  :host(.is-hovering) {
-    display: flex;
-    flex-direction: column;
-    width: 140px;
-    height: 200px;
-    border: 2px solid;
-    background-color: #0a5070;
-    padding: 10px;
-    color: #bdc2c5;
-    margin: 0 12px 12px 0;
-  }
+  
