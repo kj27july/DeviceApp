@@ -5,77 +5,68 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DeviceItemService {
-  deviceItemsCount: number  =1;
-  Keys = ["Device 1"]
+  deviceItems = [
+    {
+      name: "Device 1",
+      OsType: "Os 1",
+      battery : 100,
+      memory:"4 GB"
+    },
+    {
+      name: "Device 2",
+      OsType: "Os 2",
+      battery : 100,
+      memory:"4 GB"
+    },
+    {
+      name: "Device 3",
+      OsType: "Os 3",
+      battery : 10,
+      memory:"4 GB"
+    },
+    {
+      name: "Device 4",
+      OsType: "Os 4",
+      battery : 50,
+      memory:"4 GB"
+    },
+    {
+      name: "Device 5",
+      OsType: "Os 5",
+      battery : 75,
+      memory:"4 GB"
+    },
+    {
+      name: "Device 6",
+      OsType: "Os 6",
+      battery : 100,
+      memory:"4 GB"
+    }
+  ];
   constructor(){
-    localStorage.setItem("Keys",JSON.stringify(this.Keys));
-    localStorage.setItem("Device 1",JSON.stringify({name:"Device 1",OsType:"Windows",battery:100,memory:"4 GB"}))}
+    this.deviceItems=JSON.parse(localStorage.getItem("Devices"));
+    localStorage.setItem("Devices",JSON.stringify(this.deviceItems))}
 
-  // deviceItems = [
-  //   {
-  //     name: "Device 1",
-  //     OsType: "Os 1",
-  //     battery : 100,
-  //     memory:"4 GB"
-  //   },
-  //   {
-  //     name: "Device 2",
-  //     OsType: "Os 2",
-  //     battery : 100,
-  //     memory:"4 GB"
-  //   },
-  //   {
-  //     name: "Device 3",
-  //     OsType: "Os 3",
-  //     battery : 10,
-  //     memory:"4 GB"
-  //   },
-  //   {
-  //     name: "Device 4",
-  //     OsType: "Os 4",
-  //     battery : 50,
-  //     memory:"4 GB"
-  //   },
-  //   {
-  //     name: "Device 5",
-  //     OsType: "Os 5",
-  //     battery : 75,
-  //     memory:"4 GB"
-  //   },
-  //   {
-  //     name: "Device 6",
-  //     OsType: "Os 6",
-  //     battery : 100,
-  //     memory:"4 GB"
-  //   },
-
-    
-
-  // ];
+  
   
   get(){
-    let deviceItems = []
-    var Keys = JSON.parse(localStorage.getItem("Keys"));
-    
-    for (let i = 0; i>Keys.length;i++){
-        deviceItems.push(JSON.parse(localStorage.getItem(Keys[i])));
-    }
-    return deviceItems;
+    this.deviceItems = JSON.parse(localStorage.getItem("Devices"));
+    return this.deviceItems;
   }
 
   add(deviceItem) {
-    var Keys = JSON.parse(localStorage.getItem("Keys"));
-    Keys.push(deviceItem.name);
-    localStorage.setItem("Keys",JSON.stringify(Keys));
-    localStorage.setItem(deviceItem.name,deviceItem);
+    this.deviceItems = JSON.parse(localStorage.getItem("Devices"));
+    this.deviceItems.push(deviceItem);
+    localStorage.removeItem("Devices");
+    localStorage.setItem("Devices",JSON.stringify(this.deviceItems));
   }
 
   delete(deviceItem){
-    var Keys = JSON.parse(localStorage.getItem("Keys"));
-    var index = Keys.indexOf(deviceItem.name);
-    Keys.splice(index,1);
-    localStorage.setItem("Keys",JSON.stringify(Keys));
-    localStorage.removeItem(deviceItem.name);
+    this.deviceItems = JSON.parse(localStorage.getItem("Devices"));
+    var index = this.deviceItems.indexOf(deviceItem);
+    this.deviceItems.splice(index,1)
+    localStorage.removeItem("Devices");
+    localStorage.setItem("Devices",JSON.stringify(this.deviceItems));
 
   }
 }
