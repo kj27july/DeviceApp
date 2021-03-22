@@ -55,14 +55,14 @@ export class DeviceItemService {
   }
 
   add(deviceItem) {
-    this.deviceItems = JSON.parse(localStorage.getItem("Devices"));
+    //this.deviceItems = JSON.parse(localStorage.getItem("Devices"));
     this.deviceItems.push(deviceItem);
     localStorage.removeItem("Devices");
     localStorage.setItem("Devices",JSON.stringify(this.deviceItems));
   }
 
   delete(deviceItem){
-    this.deviceItems = JSON.parse(localStorage.getItem("Devices"));
+    //this.deviceItems = JSON.parse(localStorage.getItem("Devices"));
     var index = this.deviceItems.indexOf(deviceItem);
     this.deviceItems.splice(index,1)
     localStorage.removeItem("Devices");
