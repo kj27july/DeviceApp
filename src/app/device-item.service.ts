@@ -71,7 +71,11 @@ export class DeviceItemService {
   }
 
   delete(deviceItem){
-    
+    var Keys = JSON.parse(localStorage.getItem("Keys"));
+    var index = Keys.indexOf(deviceItem.name);
+    Keys.splice(index,1);
+    localStorage.setItem("Keys",JSON.stringify(Keys));
+    localStorage.removeItem(deviceItem.name);
 
   }
 }
